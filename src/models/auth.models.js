@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
 const { Schema } = mongoose;
 
@@ -17,6 +18,12 @@ const userSchema = new Schema({
     enum: ['user', 'staff', 'manager', 'admin'],
   },
 });
+
+// userSchema.pre('save', async function(next) {
+//   const salt = await bcrypt.gensaltSync(10);
+//   this.password = await bcrypt.hashSync(this.password, salt);
+//   next();
+// });
 
 const User = mongoose.model('User', userSchema);
 
