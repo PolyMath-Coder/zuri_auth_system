@@ -2,6 +2,7 @@ const express = require('express');
 const { json } = require('express');
 require('dotenv').config();
 const connect = require('./config/mongoose');
+const nodemailer = require('nodemailer');
 const cors = require('cors');
 const app = express();
 app.use(cors());
