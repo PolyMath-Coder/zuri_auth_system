@@ -73,4 +73,9 @@ const passwordRecovery = async (req, res) => {
   // res.json({ success: 'Heyy... So Good!' });
 };
 
-module.exports = { login, signUp, passwordRecovery };
+const confirmPin = (req, res) => {
+  // console.log(req.user);
+  const { pin } = req.body;
+};
+
+module.exports = { login, signUp, confirmPin, passwordRecovery };
