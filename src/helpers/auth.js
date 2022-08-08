@@ -24,10 +24,10 @@ const userAuthentication = (req, res, next) => {
       });
       return;
     } else {
-      console.log(decodedToken);
-      const user = await User.findOne({ _id: decodedToken._id });
+      // console.log(decodedToken);
+      const user = await User.findOne({ _id: decodedToken.id });
       req.user = user;
-      //console.log(req.user);
+      // console.log(req.user);
 
       // console.log(req.user);
       return next();
@@ -58,11 +58,11 @@ const authenticatingUser = (req, res, next) => {
       });
       return;
     } else {
-      console.log(decodedToken);
+      // console.log(decodedToken);
       const user = await User.findOne({ _id: decodedToken.id });
 
       req.user = user;
-      console.log(req.user);
+      // console.log(req.user);
 
       // console.log(req.user);
       return next();

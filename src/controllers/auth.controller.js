@@ -30,6 +30,14 @@ const signUp = async (req, res) => {
   res.json({ status: 'success', msg: 'User now created...', user, token });
   //   console.log('Yes');
 };
+const minAge = 1;
+const logOut = (req, res) => {
+  console.log(req.user);
+  const token = jwt.sign({ id: req.user._id }, JSON_WEB_SECRET, {
+    expiresIn: minAge,
+  });
+  res.redirect('/');
+};
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -105,4 +113,11 @@ const resetPassword = async (req, res) => {
   });
 };
 
-module.exports = { login, signUp, confirmPin, resetPassword, passwordRecovery };
+module.exports = {
+  login,
+  signUp,
+  confirmPin,
+  resetPassword,
+  passwordRecovery,
+  logOut,
+};
