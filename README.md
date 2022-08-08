@@ -27,3 +27,7 @@
 ### Endpoint allows only staff perform the activity designed for this endpoint.
 
 <img src="src/images/Screenshot%20(353).png" >
+
+### Endpoint allows only managers perform the activity designed for this endpoint.
+
+<img src="src/images/Screenshot%20(354).png" >
