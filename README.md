@@ -9,3 +9,5 @@
 ## Password Recovery
 
 ### User inputs email
+
+<img src="src/images/Screenshot%20(348).png" >
