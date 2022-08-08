@@ -7,7 +7,7 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 app.use(json());
-app.use('/api/auth', require('./routes/auth.routes'));
+app.use('/api', require('./routes/routes'));
 const APP_PORT = process.env.PORT;
 app.get('/', (req, res) => {
   res.json({ msg: "Here's the Home page of the World class App" });

@@ -16,11 +16,12 @@ const { hashPassword } = require('../helpers/configure');
 const signUp = async (req, res) => {
   const data = req.body;
   data.pin = randomInt(100000, 999999);
+  data.userRole = 'user';
   data.password = await bcrypt.hash(data.password, 10);
   console.log(data.password);
   const user = await User.create(data);
 
-  user.userRole = 'not assigned';
+  user.userRole = 'user';
   const token = jwt.sign({ id: user._id }, JSON_WEB_SECRET, {
     expiresIn: maxAge,
   });
@@ -74,8 +75,34 @@ const passwordRecovery = async (req, res) => {
 };
 
 const confirmPin = (req, res) => {
-  // console.log(req.user);
+  console.log(req.user);
   const { pin } = req.body;
+  if (req.user.pin !== pin) {
+    res.status(400).json({
+      status: 'err',
+      message: 'Ooops! You inputted an incorrect Pin!',
+    });
+    return;
+  }
+  return res.status(200).json({
+    status: 'success',
+    msg: "You're now at liberty reset your password",
+  });
 };
 
-module.exports = { login, signUp, confirmPin, passwordRecovery };
+const resetPassword = async (req, res) => {
+  const id = req.user._id;
+  console.log(req.user);
+  const { password } = req.body;
+  const hashPassword = await bcrypt.hash(password, 10);
+  const user = await User.findByIdAndUpdate(id, {
+    password: hashPassword,
+  });
+  res.status(200).json({
+    status: 'success',
+    msg: 'Congrats! Your password has just been updated!',
+    data: {},
+  });
+};
+
+module.exports = { login, signUp, confirmPin, resetPassword, passwordRecovery };
