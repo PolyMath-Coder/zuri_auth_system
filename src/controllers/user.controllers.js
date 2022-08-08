@@ -13,10 +13,9 @@ const deleteUser = async (req, res) => {
   }
 };
 
-const getCertainUser = async (req, res) => {
-  const { id } = req.params;
-  const user = await User.findById(id);
-  res.status(200).json({ status: 'success', msg: `User ${id} now fetched!` });
+const getAllUsers = async (req, res) => {
+  const users = await User.find();
+  res.status(200).json({ status: 'success', msg: `Users all fetched!`, users });
 };
 
 const makeUserAdmin = async (req, res) => {
@@ -38,4 +37,4 @@ const makeUserAdmin = async (req, res) => {
   }
 };
 
-module.exports = { deleteUser, getCertainUser, makeUserAdmin };
+module.exports = { deleteUser, getAllUsers, makeUserAdmin };
