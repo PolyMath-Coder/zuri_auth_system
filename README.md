@@ -19,3 +19,11 @@
 ### User now inputs desired password.
 
 <img src="src/images/Screenshot%20(350).png" >
+
+### Endpoint allows only admins perform the activity designed for this endpoint.
+
+<img src="src/images/Screenshot%20(352).png" >
+
+### Endpoint allows only staff perform the activity designed for this endpoint.
+
+<img src="src/images/Screenshot%20(353).png" >

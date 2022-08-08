@@ -9,7 +9,7 @@ const {
 const { makeUserAdmin } = require('../controllers/user.controllers');
 const router = Router();
 
-router.put('/make/:id', authenticatingUser, makeUserAdmin);
+router.put('/make/:id', authenticatingUser, authorizeAdmin, makeUserAdmin);
 
 router.delete(
   '/delete/user/:id',
