@@ -1,3 +1,3 @@
 ## Sign Up Enpoint
 
-<img src="images/Screenshot%20(346).png" >
+<img src="src/images/Screenshot%20(346).png" >
