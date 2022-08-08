@@ -24,10 +24,10 @@
 
 <img src="src/images/Screenshot%20(352).png" >
 
-### Endpoint allows only staff perform the activity designed for this endpoint.
+### Endpoint allows only staff get all users which is the acitivity designed for this endpoint.
 
 <img src="src/images/Screenshot%20(353).png" >
 
-### Endpoint allows only managers perform the activity designed for this endpoint.
+### Endpoint allows only managers delete a user designed for this endpoint.
 
 <img src="src/images/Screenshot%20(354).png" >
